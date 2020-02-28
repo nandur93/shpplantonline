@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Country</title>
+</head>
+<body>
+<form>
+    Select Your Country 
+    <select name="country" onchange="this.form.submit()">
+      <option value="" disabled selected hidden>Pilih inisial auditor</option>
+      <?php
+          $dropdown = $_SERVER['DOCUMENT_ROOT'].'/shpplantonline/php/libraries/dynamic_dropdown.php';
+          include($dropdown);
+      ?>
+    </select>
+</form>
+<?php
+   if(isset($_GET["country"])){
+       $country=$_GET["country"];
+       echo "select country is => ".$country;
+   }
+?>
+</body>
+</html>

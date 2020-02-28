@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Kontrol semua asset dalam 1 aplikasi dan track asset dengan teknologi RFID.">
+    <meta name="keywords" content="audit 5p online,audit,5p,auditor,auditee,produksi,officeplant,kalbe nutritionals,sanghiang perkasa,kpi,key performance indicator,mar,e-form,quality">
+    <meta name="author" content="Nandang Duryat">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHP Asset Management System</title>
+    <link rel="stylesheet" type="text/css" href="/shpplantonline/stylesheet/style_index.css" />
+    <link rel="stylesheet" type="text/css" href="/shpplantonline/stylesheet/top_nav.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/shpplantonline/libs/Chart.js-2.9.3/dist/Chart.min.css">
+    <link rel="shortcut icon" type="image/png" href="/shpplantonline/res/fav/aea.png" />
+    <script src="/shpplantonline/javascript/jquery-3.4.1.min.js"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script-->
+    <script src="/shpplantonline/libs/Chart.js-2.9.3/dist/Chart.bundle.js"></script>
+</head>
+
+<body>
+    <!--TopNav-->
+    <div class="topnav" id="myTopnav">
+        <a href="/shpplantonline/html/index.html" class="active"><i class="fa fa-home"></i> Home</a>
+        <a href="/shpplantonline/html/registrasi.html"><i class="fa fa-user-plus"></i> Tambah User</a>
+        <a href="/shpplantonline/html/users.html"><i class="fa fa-users"></i> User Terdaftar</a>
+        <a href="javascript:void(0);" class="icon" onclick="topNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-25">
+                <!--Done-->
+                <label for="done">Asset Management System</label>
+            </div>
+            <div class="col-75">
+                <input id="doneInput" type="number" name="number" required max="100" min="0" onchange="updateDoughnut()">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <!--Level 1-->
+                <label for="level1">Level 1</label>
+            </div>
+            <div class="col-75">
+                <input id="level1" type="number" name="number">
+            </div>
+        </div>
+    </div>
+    <script src="/shpplantonline/javascript/js_kpiChart.js"></script>
+    <script src="/shpplantonline/javascript/js_kpi_doughnut_charts.js"></script>
+</body>
+
+</html>

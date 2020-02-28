@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="SHP Plant Online adalah layanan interkatif berbasis web yang meliputi audit 5P, KPI dan QA E-form">
+    <meta name="keywords" content="audit 5p online,audit,5p,auditor,auditee,produksi,officeplant,kalbe nutritionals,sanghiang perkasa,kpi,key performance indicator,mar,e-form,quality">
+    <meta name="author" content="Nandang Duryat">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHP Plant Online</title>
+    <link rel="stylesheet" type="text/css" href="/shpplantonline/stylesheet/style_index.css" />
+    <link rel="stylesheet" type="text/css" href="/shpplantonline/stylesheet/top_nav.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="/shpplantonline/res/fav/aea.png" />
+    <link rel="stylesheet" href="/shpplantonline/libs/Chart.js-2.9.3/dist/Chart.min.css">
+    <script src="/shpplantonline/libs/Chart.js-2.9.3/dist/Chart.bundle.js"></script>
+    <script src="/shpplantonline/javascript/js_index.js"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script-->
+    <script src="/shpplantonline/javascript/jquery-3.4.1.min.js"></script>
+    <script src="/shpplantonline/javascript/js_scroll_to_top.js"></script>
+</head>
+
+<body>
+    <!--TopNav-->
+    <div class="topnav" id="myTopnav">
+        <a href="/shpplantonline/html/index.html" class="active"><i class="fa fa-home"></i> Home</a>
+        <a href="/shpplantonline/html/registrasi.html"><i class="fa fa-user-plus"></i> Tambah User</a>
+        <a href="/shpplantonline/html/users.html"><i class="fa fa-users"></i> User Terdaftar</a>
+        <a href="javascript:void(0);" class="icon" onclick="topNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div class="container">
+        <canvas id="myChart" width="400" height="100"></canvas>
+        <canvas id="kpiDoughnutAccPlant" width="400" height="100"></canvas>
+        <div class="row">
+            <div class="col-25">
+                <!--Done-->
+                <label for="done">Done</label>
+            </div>
+            <div class="col-75">
+                <input id="doneInput" type="number" name="number" required max="100" min="0" onchange="updateDoughnut()">
+            </div>
+        </div>
+    </div>
+    <script src="/shpplantonline/javascript/js_kpiChart.js"></script>
+    <script src="/shpplantonline/javascript/js_kpi_doughnut_charts.js"></script>
+</body>
+
+</html>
