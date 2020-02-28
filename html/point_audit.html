@@ -1,0 +1,282 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Audit 5P online office plant dan produksi">
+    <meta name="keywords" content="audit 5p online,audit,5p,auditor,auditee,produksi,officeplant,kalbe nutritionals,sanghiang perkasa">
+    <meta name="author" content="Nandang Duryat">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit 5P Online</title>
+    <link rel="stylesheet" type="text/css" href="/shpplantonline/stylesheet/style_index.css" />
+    <link rel="stylesheet" type="text/css" href="/shpplantonline/stylesheet/top_nav.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="/shpplantonline/res/fav/aea.png" />
+    <script src="/shpplantonline/javascript/js_index.js"></script>
+    <script src="/shpplantonline/javascript/jquery-3.4.1.min.js"></script>
+    <script src="/shpplantonline/javascript/js_scroll_to_top.js"></script>
+</head>
+
+<body>
+    <!--TopNav-->
+    <div class="topnav" id="myTopnav">
+        <a href="/shpplantonline/html/index.html" class="active"><i class="fa fa-home"></i> Home</a>
+        <a href="/shpplantonline/html/registrasi.html"><i class="fa fa-user-plus"></i> Tambah User</a>
+        <a href="/shpplantonline/html/users.html"><i class="fa fa-users"></i> User Terdaftar</a>
+        <a href="javascript:void(0);" class="icon" onclick="topNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div class="container">
+        <form action="/shpplantonline/php/insert.php" method="post">
+            <div class="row">
+                <div class="col-25">
+                    <!--Auditor-->
+                    <label for="idsname">Inisial Auditor</label>
+                </div>
+                <div class="col-75">
+                    <select id="idsname" name="sname" onchange="dropFnc()">
+                        <?php
+                            $dropdown = $_SERVER['DOCUMENT_ROOT'].'/shpplantonline/php/libraries/dynamic_dropdown.php';
+                            include($dropdown);
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <!--Tanggal Audit-->
+                    <label for="idname">Nama Auditor</label>
+                </div>
+                <div class="col-75">
+                    <input id="idname" type="name" name="name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <!--Auditee-->
+                    <label for="idsname_auditee">Inisial Auditee</label>
+                </div>
+                <div class="col-75">
+                    <select id="idsname_auditee" name="auditee">
+                        <?php
+                            $dropdown = $_SERVER['DOCUMENT_ROOT'].'/shpplantonline/php/libraries/dynamic_dropdown.php';
+                            include($dropdown);
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <!--Tanggal Audit-->
+                    <label for="date">Tanggal Audit</label>
+                </div>
+                <div class="col-75">
+                    <input id="date" type="date" name="date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <!--Jam Audit-->
+                    <label for="time">Jam Audit</label>
+                </div>
+                <div class="col-75">
+                    <input id="time" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <!--Dept-->
+                    <label for="iddept">Department</label>
+                </div>
+                <div class="col-75">
+                    <input id="iddept" type="text" name="dept" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <!--Sign-->
+                    <label for="idsign">Signature</label>
+                </div>
+                <div class="col-75">
+                    <input id="idsign" type="text" name="sign" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan1">1. Barang yang sudah tidak digunakan tidak ada di area kerja</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio1_0" type="radio" name="point_temuan1" value="0">
+                <label for="id_radio1_0">0</label>
+                <input id="id_radio1_1" type="radio" name="point_temuan1" value="1">
+                <label for="id_radio1_1">1</label>
+                <input id="id_radio1_2" type="radio" name="point_temuan1" value="2">
+                <label for="id_radio1_2">2</label>
+                <input id="id_radio1_3" type="radio" name="point_temuan1" value="3">
+                <label for="id_radio1_3">≥3</label>
+                <textarea id="id_temuan1" rows="4" cols="50" name="temuan1"></textarea>
+                <label for="id_saran1">Saran:</label>
+                <textarea id="id_saran1" rows="4" cols="50" name="saran1"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan2">2. Terdapat foto standard meja kerja yang terupdate pada setiap meja kerja, kabel sudah tertata rapi (menggunakan spiral kabel atau cover), list ext. telepon (update sesuai tahun berjalan) dan penempatanya sudah sesuai standard</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio2_0" type="radio" name="point_temuan2" value="0">
+                <label for="id_radio2_0">0</label>
+                <input id="id_radio2_1" type="radio" name="point_temuan2" value="1">
+                <label for="id_radio2_1">1</label>
+                <input id="id_radio2_2" type="radio" name="point_temuan2" value="2">
+                <label for="id_radio2_2">2</label>
+                <input id="id_radio2_3" type="radio" name="point_temuan2" value="3">
+                <label for="id_radio2_3">≥3</label>
+                <textarea id="id_temuan2" rows="4" cols="50" name="temuan2"></textarea>
+                <label for="id_saran2">Saran:</label>
+                <textarea id="id_saran2" rows="4" cols="50" name="saran2"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan3">3. Dokumen di dalam tray dan box file tidak melebihi kapasitas, ada lead time dan tidak obsolete</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio3_0" type="radio" name="point_temuan3" value="0">
+                <label for="id_radio3_0">0</label>
+                <input id="id_radio3_1" type="radio" name="point_temuan3" value="1">
+                <label for="id_radio3_1">1</label>
+                <input id="id_radio3_2" type="radio" name="point_temuan3" value="2">
+                <label for="id_radio3_2">2</label>
+                <input id="id_radio3_3" type="radio" name="point_temuan3" value="3">
+                <label for="id_radio3_3">≥3</label>
+                <textarea id="id_temuan3" rows="4" cols="50" name="temuan3"></textarea>
+                <label for="id_saran3">Saran:</label>
+                <textarea id="id_saran3" rows="4" cols="50" name="saran3"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan4">4. Semua benda di area kerja dan lantai dalam keadaan bersih</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio4_0" type="radio" name="point_temuan4" value="0">
+                <label for="id_radio4_0">0</label>
+                <input id="id_radio4_1" type="radio" name="point_temuan4" value="1">
+                <label for="id_radio4_1">1</label>
+                <input id="id_radio4_2" type="radio" name="point_temuan4" value="2">
+                <label for="id_radio4_2">2</label>
+                <input id="id_radio4_3" type="radio" name="point_temuan4" value="3">
+                <label for="id_radio4_3">≥3</label>
+                <textarea id="id_temuan4" rows="4" cols="50" name="temuan4"></textarea>
+                <label for="id_saran4">Saran:</label>
+                <textarea id="id_saran4" rows="4" cols="50" name="saran4"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan5">5. Identitas lemari dan credenza sesuai dengan isinya dan sesuai standar*</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio5_0" type="radio" name="point_temuan5" value="0">
+                <label for="id_radio5_0">0</label>
+                <input id="id_radio5_1" type="radio" name="point_temuan5" value="1">
+                <label for="id_radio5_1">1</label>
+                <input id="id_radio5_2" type="radio" name="point_temuan5" value="2">
+                <label for="id_radio5_2">2</label>
+                <input id="id_radio5_3" type="radio" name="point_temuan5" value="3">
+                <label for="id_radio5_3">≥3</label>
+                <textarea id="id_temuan5" rows="4" cols="50" name="temuan5"></textarea>
+                <label for="id_saran5">Saran:</label>
+                <textarea id="id_saran5" rows="4" cols="50" name="saran5"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan6">6. Semua label identitas tidak ada yang rusak (terkelupas)</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio6_0" type="radio" name="point_temuan6" value="0">
+                <label for="id_radio6_0">0</label>
+                <input id="id_radio6_1" type="radio" name="point_temuan6" value="1">
+                <label for="id_radio6_1">1</label>
+                <input id="id_radio6_2" type="radio" name="point_temuan6" value="2">
+                <label for="id_radio6_2">2</label>
+                <input id="id_radio6_3" type="radio" name="point_temuan6" value="3">
+                <label for="id_radio6_3">≥3</label>
+                <textarea id="id_temuan6" rows="4" cols="50" name="temuan6"></textarea>
+                <label for="id_saran6">Saran:</label>
+                <textarea id="id_saran6" rows="4" cols="50" name="saran6"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan7">7. Pemakaian Laci Meja dan Credenza sesuai dengan Peruntukannya*</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio7_0" type="radio" name="point_temuan7" value="0">
+                <label for="id_radio7_0">0</label>
+                <input id="id_radio7_1" type="radio" name="point_temuan7" value="1">
+                <label for="id_radio7_1">1</label>
+                <input id="id_radio7_2" type="radio" name="point_temuan7" value="2">
+                <label for="id_radio7_2">2</label>
+                <input id="id_radio7_3" type="radio" name="point_temuan7" value="3">
+                <label for="id_radio7_3">≥3</label>
+                <textarea id="id_temuan7" rows="4" cols="50" name="temuan7"></textarea>
+                <label for="id_saran7">Saran:</label>
+                <textarea id="id_saran7" rows="4" cols="50" name="saran7"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan8">8. Laci Pribadi tidak boleh diisi makanan yang basah/mudah basi</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio8_0" type="radio" name="point_temuan8" value="0">
+                <label for="id_radio8_0">0</label>
+                <input id="id_radio8_1" type="radio" name="point_temuan8" value="1">
+                <label for="id_radio8_1">1</label>
+                <input id="id_radio8_2" type="radio" name="point_temuan8" value="2">
+                <label for="id_radio8_2">2</label>
+                <input id="id_radio8_3" type="radio" name="point_temuan8" value="3">
+                <label for="id_radio8_3">≥3</label>
+                <textarea id="id_temuan8" rows="4" cols="50" name="temuan8"></textarea>
+                <label for="id_saran8">Saran:</label>
+                <textarea id="id_saran8" rows="4" cols="50" name="saran8"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan9">9. Tidak ada barang yang diletakkan di lantai, diatas credenza dan diatas lemari (kecuali penghargaan, pajangan hiasan dan foto)</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio9_0" type="radio" name="point_temuan9" value="0">
+                <label for="id_radio9_0">0</label>
+                <input id="id_radio9_1" type="radio" name="point_temuan9" value="1">
+                <label for="id_radio9_1">1</label>
+                <input id="id_radio9_2" type="radio" name="point_temuan9" value="2">
+                <label for="id_radio9_2">2</label>
+                <input id="id_radio9_3" type="radio" name="point_temuan9" value="3">
+                <label for="id_radio9_3">≥3</label>
+                <textarea id="id_temuan9" rows="4" cols="50" name="temuan9"></textarea>
+                <label for="id_saran9">Saran:</label>
+                <textarea id="id_saran9" rows="4" cols="50" name="saran9"></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_temuan10">10. Ada follow up temuan audit 5P mandiri sebelumnya</label>
+            </div>
+            <div>Jumlah temuan:
+                <input id="id_radio10_0" type="radio" name="point_temuan10" value="0">
+                <label for="id_radio10_0">0</label>
+                <input id="id_radio10_1" type="radio" name="point_temuan10" value="1">
+                <label for="id_radio10_1">1</label>
+                <input id="id_radio10_2" type="radio" name="point_temuan10" value="2">
+                <label for="id_radio10_2">2</label>
+                <input id="id_radio10_3" type="radio" name="point_temuan10" value="3">
+                <label for="id_radio10_3">≥3</label>
+                <textarea id="id_temuan10" rows="4" cols="50" name="temuan10"></textarea>
+                <label for="id_saran10">Saran:</label>
+                <textarea id="id_saran10" rows="4" cols="50" name="saran10"></textarea>
+            </div>
+            <div class="row">
+                <br>
+                <input id="idsubmit" type="submit" value="Simpan">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
