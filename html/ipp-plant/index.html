@@ -70,9 +70,9 @@ Created: 27 Feb 2020 -->
       <a class="item">Menu Item C</a>
       <a class="item">Menu Item D</a>
     </div>
-    <div class="ui three column grid">
-      <div class="column">
-        <div class="pusher">
+    <div class="pusher">
+      <div class="ui three column grid">
+        <div class="column">
           <div id="content" class="ui segment">
             <!-- Data Chart dari mySQL -->
             <?php
@@ -175,10 +175,10 @@ Created: 27 Feb 2020 -->
               </div>
             </div>
             <!-- Data Chart dari mySQL -->
-            <?php
+            <!-- <?php
           include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/connections/shpplantonline_conn.php');
           include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/php-ipp-plant/ipp_person_name.php');
-          ?>
+          ?> -->
 
             <!-- Half circle -->
             <!-- Card untuk pie chart ipp_gen_com -->
@@ -211,7 +211,6 @@ Created: 27 Feb 2020 -->
                   var finalScore
 
                   function chartJS(finalScore) {
-                    console.log("Test " + finalScore);
                     var tpmData = {
                       labels: ["Final", "Target"],
                       datasets: [{
