@@ -14,31 +14,30 @@ Created: 27 Feb 2020 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHP Plant Online</title>
   <!-- Semantic-ui Library -->
-  <link rel="stylesheet" type="text/css" href="/shpplantonline/libs/Semantic-UI-CSS-master/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="../../libs/Semantic-UI-CSS-master/semantic.min.css">
   <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
-  <script src="/shpplantonline/javascript/jquery-3.4.1.min.js"></script>
-  <script src="/shpplantonline/javascript/js_menu.js"></script>
-  <script src="/shpplantonline/libs/Semantic-UI-CSS-master/semantic.min.js"></script>
+  <script src="../../javascript/jquery-3.4.1.min.js"></script>
+  <script src="../../javascript/js_menu.js"></script>
+  <script src="../../libs/Semantic-UI-CSS-master/semantic.min.js"></script>
+  <!-- ChartJS Libaray -->
+  <script src="../../libs/Chart.js-2.9.3/dist/Chart.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../libs/Chart.js-2.9.3/dist/Chart.min.css">
   <!-- Stylesheet -->
-  <link rel="stylesheet" type="text/css" href="/shpplantonline/stylesheet/style_index.css" />
-  <link rel="stylesheet" type="text/css" href="/shpplantonline/stylesheet/top_nav.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../../stylesheet/style_index.css" /> -->
+  <!-- <link rel="stylesheet" type="text/css" href="../../stylesheet/top_nav.css" /> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/font-awesome.min.css"> -->
   <!-- Favicons https://realfavicongenerator.net/-->
-  <link rel="shortcut icon" href="/shpplantonline/res/fav/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/shpplantonline/res/fav/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/shpplantonline/res/fav/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/shpplantonline/res/fav/favicon-16x16.png">
-  <link rel="manifest" href="/shpplantonline/res/fav/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="../../res/fav/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../res/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../res/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../res/fav/favicon-16x16.png">
+  <link rel="manifest" href="../../res/fav/site.webmanifest">
+  <link rel="mask-icon" href="../../res/fav/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-  <!-- JavaScript -->
-  <script src="/shpplantonline/javascript/js_index.js"></script>
-  <!-- Scroll to top widget -->
-  <script src="/shpplantonline/javascript/js_scroll_to_top.js"></script>
   <!-- Fontawesome 4.7.0 -->
-  <script src="https://use.fontawesome.com/62951918de.js"></script>
+  <!-- <script src="https://use.fontawesome.com/62951918de.js"></script> -->
 
 </head>
 
@@ -47,7 +46,7 @@ Created: 27 Feb 2020 -->
     <div class="computer only row">
       <div class="column">
         <div class="ui menu">
-          <a class="item">Menu Item A</a>
+          <a class="item">Home</a>
           <a class="item">Menu Item B</a>
           <a class="item">Menu Item C</a>
           <a class="item">Menu Item D</a>
@@ -66,86 +65,222 @@ Created: 27 Feb 2020 -->
 
   <div class="ui pushable segment">
     <div class="ui sidebar vertical menu">
-      <a class="item">Menu Item A</a>
+      <a class="item">Home</a>
       <a class="item">Menu Item B</a>
       <a class="item">Menu Item C</a>
       <a class="item">Menu Item D</a>
     </div>
     <div class="pusher">
-      <div id="content" class="ui segment">
+      <div class="ui three column grid">
         <div class="column">
-          <!-- Audit online card -->
-          <a class="ui card" href="/shpplantonline/html/point_audit.html">
-            <div class="content">
-              <div class="header">Audit Online</div>
-              <div class="meta">
-                <span class="category">In Development</span>
+          <div id="content" class="ui segment">
+            <!-- Data Chart dari mySQL -->
+            <?php
+          include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/connections/shpplantonline_conn.php');
+          include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/php-ipp-plant/ipp_person_name.php');
+          ?>
+            <!-- Start cards -->
+            <!-- Card untuk pie chart ipp_gen_com -->
+            <div class="ui card">
+              <div class="content">
+                <div class="right floated meta">14h</div>
+                <img class="ui avatar image" src="../../assets/images/nan.jpg">
+                <?php
+              if ($result->num_rows > 0) {
+                  // output data of each row
+                  while ($row = $result->fetch_assoc()) {
+                      echo $row["ipp_person_name"]; // gunakan pointer ke table row
+                  }
+              } else {
+                  echo "0 results";
+              }
+              $conn->close();
+              ?>
               </div>
-              <div class="description">
-                <p>Audit online adalah system audit office plant secara cross dan dilakukan dengan metode online
-                  web based
-                </p>
+              <div class="image">
+                <canvas id="ipp_gen_com-vza" width="400" height="400">
+                </canvas>
+                <!-- ChartJS doughnut -->
+                <script>
+                  var prd = [];
+                  var pnp = [];
+                  var em = [];
+                  var qa = [];
+                  var hrga = [];
+                  var ms = [];
+                  $(document).ready(
+                    function () {
+                      $.ajax({
+                        url: "/shpplantonline/php/php-ipp-plant/mtx_vza.php",
+                        method: "GET",
+                        success: function (data) {
+                          console.log(data);
+
+                          for (var i in data) {
+                            prd.push(data[i].mtx_ipp_prd);
+                            pnp.push(data[i].mtx_ipp_pnp);
+                            em.push(data[i].mtx_ipp_em);
+                            qa.push(data[i].mtx_ipp_qa);
+                            hrga.push(data[i].mtx_ipp_hrga);
+                            ms.push(data[i].mtx_ipp_ms);
+                          }
+                          var totalChamp = parseInt(prd) + parseInt(pnp) + parseInt(em) + parseInt(qa) +
+                            parseInt(
+                              hrga) + parseInt(ms);
+                          var toStr = totalChamp.toString();
+                          var str2 = " Champs";
+                          var champions = toStr.concat(str2);
+                          document.getElementById("champx").innerHTML = champions;
+                          var chartdata = {
+                            labels: ["PRD", "P&P", "EM", "QA", "HRGA", "MS"],
+                            datasets: [{
+                              backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                              ],
+                              data: [prd, pnp, em, qa, hrga, ms]
+                            }]
+                          };
+
+                          var ctx = $("#ipp_gen_com-vza");
+
+                          var doughNut = new Chart(ctx, {
+                            "type": "doughnut",
+                            "data": chartdata
+                          });
+                        },
+                        error: function (data) {
+                          console.log(data);
+                        }
+                      });
+                    });
+                </script>
+              </div>
+              <div class="content">
+                <span class="right floated">
+                  <i class="heart outline like icon"></i> <b id="champx"></b>
+                </span>
+                <i class="comment icon"></i>
+                3 comments
+              </div>
+              <div class="extra content">
+                <div class="ui large transparent left icon input">
+                  <i class="heart outline icon"></i>
+                  <input type="text" placeholder="Add Comment...">
+                </div>
               </div>
             </div>
-            <div class="extra content">
-              <div class="right floated author">
-                <i class="clipboard icon"></i>
+            <!-- Data Chart dari mySQL -->
+            <!-- <?php
+          include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/connections/shpplantonline_conn.php');
+          include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/php-ipp-plant/ipp_person_name.php');
+          ?> -->
+
+            <!-- Half circle -->
+            <!-- Card untuk pie chart ipp_gen_com -->
+            <div class="ui card">
+              <div class="content">
+                <div class="right floated meta">14h</div>
+                <img class="ui avatar image" src="../../assets/images/nan.jpg">
+                <?php
+              if ($result->num_rows > 0) {
+                  // output data of each row
+                  while ($row = $result->fetch_assoc()) {
+                      echo $row["ipp_person_name"]; // gunakan pointer ke table row
+                  }
+              } else {
+                  echo "0 results";
+              }
+              $conn->close();
+              ?>
+              </div>
+              <div class="image">
+                <canvas id="ipp_tpm_imp-vza" width="400" height="400">
+                </canvas>
+                <!-- ChartJS doughnut -->
+                <script>
+                  var targetScore1 = 90;
+                  var targetScore2 = 95;
+                  var targetScore3 = 100;
+                  var targetScore4 = 105;
+                  var targetScore5 = 110;
+                  var finalScore
+
+                  function chartJS(finalScore) {
+                    var tpmData = {
+                      labels: ["Final", "Target"],
+                      datasets: [{
+                        backgroundColor: [
+                          'rgba(255, 99, 132, 0.2)',
+                          'rgba(108, 122, 137, 0)'
+                        ],
+                        data: [finalScore, targetScore5 - finalScore]
+                      }]
+                    };
+                    var ctx = $("#ipp_tpm_imp-vza");
+
+                    var halfDoughnut = new Chart(ctx, {
+                      "type": "doughnut",
+                      "data": tpmData,
+                      "options": {
+                        rotation: 1 * Math.PI,
+                        circumference: 1 * Math.PI
+                      },
+                      "animation": {
+                        animateScale: false,
+                        animateRotate: false
+                      }
+                    });
+                  };
+
+                  function waitForMessage() {
+                    $.ajax({
+                      url: "/shpplantonline/php/php-ipp-plant/tpm_imp_vza.php",
+                      method: "GET",
+                      async: true,
+                      /* If set to non-async, browser shows page as "Loading.."*/
+                      cache: false,
+                      timeout: 50000,
+                      /* Timeout in ms */
+                      success: function (data) {
+                        var stringScore = JSON.stringify(data);
+                        var parseScore = JSON.parse(stringScore);
+                        var finalScore = parseScore[0].ipp_tpm_imp;
+                        console.log("success " + finalScore);
+                        chartJS(finalScore);
+
+                      },
+                      error: function (data) {
+                        console.log(data);
+                      },
+                    });
+                  };
+                  $(document).ready(function passData() {
+                    waitForMessage();
+                    chartJS();
+                  });
+                  setInterval(waitForMessage, 5000);
+                </script>
+              </div>
+              <div class="content">
+                <span class="right floated">
+                  <i class="heart outline like icon"></i> <b id="champx"></b>
+                </span>
+                <i class="comment icon"></i>
+                3 comments
               </div>
             </div>
-          </a>
-        </div>
-        <div class="column">
-          <!-- KPI plant card -->
-          <a class="ui card" href="/shpplantonline/html/kpi_dashboard.html">
-            <div class="content">
-              <div class="header">KPI Plant</div>
-              <div class="meta">
-                <span class="category">In Development</span>
-              </div>
-              <div class="description">
-                <p>KPI (Key Performance Indicator) adalah sistem perhitungan KPI perdepartment
-                </p>
-              </div>
-            </div>
-            <div class="extra content">
-              <div class="right floated author">
-                <i class="chart pie icon"></i>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="column">
-          <!-- AMS plant card -->
-          <a class="ui card" href="/shpplantonline/html/ams_assets.html">
-            <div class="content">
-              <div class="header">SHP Asset Management System</div>
-              <div class="meta">
-                <span class="category">In Development</span>
-              </div>
-              <div class="description">
-                <p>Kontrol semua asset dalam 1 aplikasi dan track asset dengan teknologi RFID
-                </p>
-              </div>
-            </div>
-            <div class="extra content">
-              <div class="right floated author">
-                <i class="qrcode icon"></i>
-              </div>
-            </div>
-          </a>
+
+            <!-- End cards -->
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <!--Top Navigation-->
-  <!-- <div class="topnav" id="myTopnav">
-    <a href="/shpplantonline/html/ipp-plant/index.html" class="active"><i class="home icon"></i> Home</a>
-    <a href="/shpplantonline/html/ipp-plant/index.html"><i class="user plus icon"></i> Tambah User</a>
-    <a href="/shpplantonline/html/ipp-plant/index.html"><i class="users icon"></i> User Terdaftar</a>
-    <a href="javascript:void(0);" class="icon" onclick="topNav()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div> -->
 </body>
 
 </html>
