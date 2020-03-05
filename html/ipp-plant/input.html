@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<!-- /   = Root directory
+   .   = This location
+   ..  = Up a directory
+   ./  = Current directory
+   ../ = Parent of current directory
+   ../../ = Two directories backwards -->
+
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>SHP Plant Online</title>
+
+  <link rel="stylesheet" type="text/css" href="../../libs/Semantic-UI-CSS-master/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="../../stylesheet/custom_semantic.css">
+
+  <script src="../../javascript/jquery-3.4.1.min.js"></script>
+  <script src="../../libs/Semantic-UI-CSS-master/semantic.min.js"></script>
+  <script src="../../javascript/js_custom_sematic.js"></script>
+
+  <!-- Scroll to top widget -->
+  <script src="../../javascript/js_scroll_to_top.js"></script>
+
+  <!-- Favicons https://realfavicongenerator.net/-->
+  <link rel="shortcut icon" href="./res/fav/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../res/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../res/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../res/fav/favicon-16x16.png">
+  <link rel="manifest" href="../../res/fav/site.webmanifest">
+  <link rel="mask-icon" href="../../res/fav/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+
+  <!-- Following Menu -->
+  <div class="ui fixed inverted main menu">
+    <div class="ui container">
+      <a class="active item">Home</a>
+      <a class="item">Work</a>
+      <a class="item">Company</a>
+      <a class="item">Careers</a>
+      <div class="right menu">
+        <div class="item">
+          <a class="ui button">Log in</a>
+        </div>
+        <div class="item">
+          <a class="ui primary button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar Menu -->
+  <div class="ui vertical inverted sidebar menu">
+    <a href="./" class="active item">Home</a>
+    <a href="./html/ams_assets.html" class="item">RFID Asset Management System</a>
+    <a href="./html/kpi_dashboard.html" class="item">Dashboard IPP Plant</a>
+    <a href="./html/point_audit.html" class="item">Audit 5P Plant</a>
+  </div>
+
+  <!-- Page Contents -->
+  <div class="pusher">
+    <div class="ui fixed vertical masthead center aligned segment">
+      <div class="ui large secondary pointing menu">
+        <div class="ui container">
+          <!-- <div class="ui large secondary inverted pointing menu"> -->
+          <a class="toc item">
+            <i class="sidebar icon"></i>
+          </a>
+          <a href="./" class="active item">Home</a>
+          <a href="./html/ams_assets.html" class="item">RFID Asset Management System</a>
+          <a href="./html/kpi_dashboard.html" class="item">Dashboard IPP Plant</a>
+          <a href="./html/point_audit.html" class="item">Audit 5P Plant</a>
+          <div class="right item">
+            <!-- <a class="ui inverted button">Log in</a>
+            <a class="ui inverted button">Sign Up</a> -->
+          </div>
+        </div>
+      </div>
+      <!-- End of header -->
+
+      <div class="main ui container left aligned">
+        <!-- Breadcrumbs -->
+        <div class="ui segment">
+          <div class="ui breadcrumb">
+            <a class="section" href="index.html">Home</a>
+            <i class="right angle icon divider"></i>
+            <a class="section">SHP Plant Online</a>
+            <i class="right angle icon divider"></i>
+            <a class="section">IPP Dashboard</a>
+            <i class="right angle icon divider"></i>
+            <div class="active section">Input IPP</div>
+          </div>
+        </div>
+
+        <div class="html ui to attached segment">
+          <div class="ui form">
+
+            <!-- Contents start here -->
+            <div class="ui segment">
+              <div class="ui text container center aligned">
+                <h2 class="ui dividing header">Form Individual Performance Plant</h2>
+              </div>
+            </div>
+
+            <!-- Name fields -->
+            <div class="four fields left aligned">
+              <!-- Field 1 -->
+              <div class="field">
+                <label>Username</label>
+                <select class="ui fluid dropdown" id="uname">
+                  <option value="">Username</option>
+                  <option value="1">BGW</option>
+                  <option value="2">SDR</option>
+                  <option value="3">CAM</option>
+                  <option value="4">FRC</option>
+                  <option value="5">FFA</option>
+                  <option value="6">VZA</option>
+                  <option value="7">DAP</option>
+                </select>
+              </div>
+              <!-- Field 2 -->
+              <div class="field">
+                <label>Full Name</label>
+                <input type="text" placeholder="Name" id="fname">
+              </div>
+              <!-- Field 3 -->
+              <div class="field">
+                <label>NIK</label>
+                <input type="text" placeholder="NIK" id="nik">
+              </div>
+
+              <!-- Field 4 Dropdown Department -->
+              <!-- <div class="field">
+                <label>Department</label>
+                <div class="ui fluid selection dropdown" id="department">
+                  <input type="hidden" name="department">
+                  <div class="default text">Department</div>
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <div class="item" data-value="em"><i class="icon wrench"></i>EM</div>
+                    <div class="item" data-value="hrga"><i class="icon address book"></i>HRGA</div>
+                    <div class="item" data-value="ms"><i class="icon chart pie"></i>MS</div>
+                    <div class="item" data-value="ppc"><i class="icon chart bar"></i>PPC</div>
+                    <div class="item" data-value="plant"><i class="icon user"></i>Plant Head</div>
+                    <div class="item" data-value="prd"><i class="icon industry"></i>Produksi</div>
+                    <div class="item" data-value="qa"><i class="icon check circle"></i>QA</div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="field">
+                <label>Department</label>
+                <input type="text" placeholder="Department" id="department">
+              </div>
+
+            </div>
+            <!-- End of 4 fields -->
+
+            <!-- Pilih Bulan -->
+            <!-- Dropdown Bulan -->
+            <div class="field">
+              <label>Bulan</label>
+              <div class="ui fluid selection dropdown" id="bulan">
+                <input type="hidden" name="month">
+                <div class="default text">Pilih Bulan</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item" data-value="Jan">Januari</div>
+                  <div class="item" data-value="Feb">Februari</div>
+                  <div class="item" data-value="Mar">Maret</div>
+                  <div class="item" data-value="Apr">April</div>
+                  <div class="item" data-value="May">Mei</div>
+                  <div class="item" data-value="Jun">Juni</div>
+                  <div class="item" data-value="Jul">Juli</div>
+                  <div class="item" data-value="Aug">Agustus</div>
+                  <div class="item" data-value="Sep">September</div>
+                  <div class="item" data-value="Oct">Oktober</div>
+                  <div class="item" data-value="Nov">November</div>
+                  <div class="item" data-value="Dec">Desember</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Foocus KPI -->
+            <h4 class="ui dividing header">Focus KPI</h4>
+            <!-- 1 -->
+            <label>1. POE SHP <i class="icon question circle outline" data-title="Deliverable"
+                data-content="POE = 76%"></i></label>
+            <div class="two fields">
+              <div class="field">
+                <input type="text" placeholder="Weight 25%">
+              </div>
+              <div class="field">
+                <select class="ui fluid dropdown" id="poeskala">
+                  <option value="">Skala</option>
+                  <option value="1">x &lt; 72%</option>
+                  <option value="2">72% &lt;= x &lt; 74%</option>
+                  <option value="3">74% &lt;= x &lt; 76%</option>
+                  <option value="4">76% &lt;= x &lt; 78%</option>
+                  <option value="5">x &ge; 78%</option>
+                </select>
+              </div>
+            </div>
+            <!-- 2 -->
+            <div class="field">
+              <label>2. Capacities <i class="icon question circle outline" data-title="Deliverable"
+                  data-content="Capacity Actual: 70%"></i></label>
+              <input type="text">
+            </div>
+            <!-- 3 -->
+            <div class="field">
+              <label>3. Departmen Cost (Rp/kg) <i class="icon question circle outline" data-title="Deliverable"
+                  data-content="4553 Rp/kg"></i></label>
+              <input type="text">
+            </div>
+            <!-- 4 -->
+            <div class="field">
+              <label>4. Automation Project (Flexible line/IBC installed) <i class="icon question circle outline"
+                  data-title="Deliverable" data-content="Reduce MP 20 people"></i></label>
+              <input type="text">
+            </div>
+            <!-- 5 -->
+            <div class="field">
+              <label>5. TPM Implementation AM (TPM Score dari Otsuka) <i class="icon question circle outline"
+                  data-title="Deliverable" data-content="Health Check Score"></i></label>
+              <input type="text">
+            </div>
+
+            <!-- MAR -->
+            <h4 class="ui dividing header">MAR</h4>
+            <!-- 1 -->
+            <div class="field">
+              <label>1. Improve General Competency for all employee <i class="icon question circle outline"
+                  data-title="Deliverable"
+                  data-content="Mapping competency dictionary (include 4.0) implemented as schedule"></i></label>
+              <input type="text">
+            </div>
+            <!-- 2 -->
+            <div class="field">
+              <label>2. Develop orang untuk punya contamination & process failure awareness (reduce NQC) <i
+                  class="icon question circle outline" data-title="Deliverable"
+                  data-content="% Batch Final Release (Kejadian NQC : Number & % of cases close)"></i></label>
+              <input type="text">
+            </div>
+            <!-- 3 -->
+            <div class="field">
+              <label>3. TPM Implementation AM (TPM Score dari Otsuka) <i class="icon question circle outline"
+                  data-title="Deliverable" data-content="Matrix Score"></i></label>
+              <input type="text">
+            </div>
+            <!-- 4 -->
+            <div class="field">
+              <label>4. Stock Op Name Asset Produksi --> RFID implementation <i class="icon question circle outline"
+                  data-title="Deliverable" data-content="% Accuration"></i></label>
+              <input type="text">
+            </div>
+            <!-- 5 -->
+            <div class="field">
+              <label>5. SCR 4 <i class="icon question circle outline" data-title="Deliverable"
+                  data-content="% WPS vs Capacity"></i></label>
+              <input type="text">
+            </div>
+            <!-- 6 -->
+            <div class="field">
+              <label>6. Improve complaint level <i class="icon question circle outline" data-title="Deliverable"
+                  data-content="Customer Complaint (ppm)"></i></label>
+              <input type="text">
+            </div>
+            <!-- 7 -->
+            <div class="field">
+              <label>7. Budget Achievement Produksi <i class="icon question circle outline" data-title="Deliverable"
+                  data-content="% Achievement"></i></label>
+              <input type="text">
+            </div>
+            <!-- 8 -->
+            <div class="field">
+              <label>8. Man Power productivity Production <i class="icon question circle outline"
+                  data-title="Deliverable" data-content="HKg/mhrs"></i></label>
+              <input type="text">
+            </div>
+            <!-- 9 -->
+            <div class="field">
+              <label>9. TPM Implementation All (TPM dari Otsuka) <i class="icon question circle outline"
+                  data-title="Deliverable" data-content="Health Check Score"></i></label>
+              <input type="text">
+            </div>
+            <!-- 10 -->
+            <div class="field">
+              <label>10. Score MAR cross departmen(I2C, CSI/ESI, ERM, SHE, Compliance Rate) <i
+                  class="icon question circle outline" data-title="Deliverable"
+                  data-content="Total Score Matrix"></i></label>
+              <input type="text">
+            </div>
+
+            <!-- Submit button -->
+            <div class="ui buttons">
+              <button class="ui button">Cancel</button>
+              <div class="or"></div>
+              <button class="ui positive button">Save</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui inverted vertical footer segment">
+      <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
+          <div class="three wide column">
+            <h4 class="ui inverted header">About</h4>
+            <div class="ui inverted link list">
+              <a href="#" class="item">Sitemap</a>
+              <a href="#" class="item">Contact Us</a>
+              <a href="#" class="item">Religious Ceremonies</a>
+              <a href="#" class="item">Gazebo Plans</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Services</h4>
+            <div class="ui inverted link list">
+              <a href="#" class="item">Banana Pre-Order</a>
+              <a href="#" class="item">DNA FAQ</a>
+              <a href="#" class="item">How To Access</a>
+              <a href="#" class="item">Favorite X-Men</a>
+            </div>
+          </div>
+          <div class="seven wide column">
+            <h4 class="ui inverted header">Footer Header</h4>
+            <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
