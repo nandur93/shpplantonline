@@ -195,42 +195,147 @@
                 data-content="POE = 76%"></i></label>
             <div class="two fields">
               <div class="field">
-                <input type="text" placeholder="Weight 25%">
+                <div class="ui right labeled input">
+                  <input type="number" placeholder="Weight 25%" id="poeinput">
+                  <div class="ui basic label">
+                    %
+                  </div>
+                </div>
               </div>
               <div class="field">
-                <select class="ui fluid dropdown" id="poeskala">
-                  <option value="">Skala</option>
-                  <option value="1">x &lt; 72%</option>
-                  <option value="2">72% &lt;= x &lt; 74%</option>
-                  <option value="3">74% &lt;= x &lt; 76%</option>
-                  <option value="4">76% &lt;= x &lt; 78%</option>
-                  <option value="5">x &ge; 78%</option>
-                </select>
+                <div class="field ui mini message" id="poeskala">
+                  Bobot 25%
+                </div>
+                <div class="ui popup">
+                  <label>Skala</label>
+                  <ol class="ui list">
+                    <li>x &lt; 72%</li>
+                    <li>2% &lt;= x &lt; 74%</li>
+                    <li>74% &lt;= x &lt; 76%</li>
+                    <li>76% &lt;= x &lt; 78%</li>
+                    <li>x &ge; 78%</li>
+                  </ol>
+                </div>
               </div>
             </div>
+
             <!-- 2 -->
-            <div class="field">
-              <label>2. Capacities <i class="icon question circle outline" data-title="Deliverable"
-                  data-content="Capacity Actual: 70%"></i></label>
-              <input type="text">
+            <label>2. Capacities <i class="icon question circle outline" data-title="Deliverable"
+                data-content="Capacity Actual: 70%"></i></label>
+            <div class="two fields">
+              <div class="field">
+                <div class="ui right labeled input">
+                  <input type="number" placeholder="Weight 15%" id="capinput">
+                  <div class="ui basic label">
+                    %
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="field ui mini message" id="capskala">
+                  Bobot 15%
+                </div>
+                <div class="ui popup">
+                  <label>Skala</label>
+                  <ol class="ui list">
+                    <li>x = &gt; 90%</li>
+                    <li>80% &lt;= x &lt; 90%</li>
+                    <li>70% &lt;= x &lt; 80%</li>
+                    <li>60% &lt;= x &lt; 70%</li>
+                    <li>x &lt; 60%</li>
+                  </ol>
+                </div>
+              </div>
             </div>
+
             <!-- 3 -->
-            <div class="field">
-              <label>3. Departmen Cost (Rp/kg) <i class="icon question circle outline" data-title="Deliverable"
-                  data-content="4553 Rp/kg"></i></label>
-              <input type="text">
+            <label>3. Departmen Cost (Rp/kg) <i class="icon question circle outline" data-title="Deliverable"
+                data-content="4553 Rp/kg"></i></label>
+            <div class=" two fields">
+              <div class="field">
+                <div class="ui right labeled input">
+                  <label for="depcostinput" class="ui label">Rp</label>
+                  <input type="number" placeholder="Weight 25%" id="depcostinput">
+                  <div class="ui basic label">
+                    /kg
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="field ui mini message" id="depcostskala">
+                  Bobot 25%
+                </div>
+                <div class="ui popup">
+                  <label>Skala</label>
+                  <ol class="ui list">
+                    <li>Rp5,009/kg</li>
+                    <li>Rp4,782/kg</li>
+                    <li>Rp4,554/kg</li>
+                    <li>Rp4,326/kg</li>
+                    <li>Rp4,009/kg</li>
+                  </ol>
+                </div>
+              </div>
             </div>
+
             <!-- 4 -->
-            <div class="field">
-              <label>4. Automation Project (Flexible line/IBC installed) <i class="icon question circle outline"
-                  data-title="Deliverable" data-content="Reduce MP 20 people"></i></label>
-              <input type="text">
+            <label>4. Automation Project (Flexible line/IBC installed) <i class="icon question circle outline"
+                data-title="Deliverable" data-content="Reduce MP 20 people"></i></label>
+            <div class=" two fields">
+              <div class="field">
+                <div class="ui right labeled input">
+                  <label for="ibcinput" class="ui label">Reduce</label>
+                  <input type="number" placeholder="Weight 20%" id="ibcinput">
+                  <div class="ui basic label">
+                    MP
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="field ui mini message" id="ibcskala">
+                  Bobot 20%
+                </div>
+                <div class="ui popup">
+                  <label>Skala</label>
+                  <ol class="ui list">
+                    <li>Reduce 12 MP</li>
+                    <li>Reduce 14 MP</li>
+                    <li>Reduce 16 MP</li>
+                    <li>Reduce 18 MP</li>
+                    <li>Reduce 20 MP</li>
+                  </ol>
+                </div>
+              </div>
             </div>
+
             <!-- 5 -->
-            <div class="field">
-              <label>5. TPM Implementation AM (TPM Score dari Otsuka) <i class="icon question circle outline"
-                  data-title="Deliverable" data-content="Health Check Score"></i></label>
-              <input type="text">
+            <label>5. TPM Implementation AM (TPM Score dari Otsuka) <i class="icon question circle outline"
+                data-title="Deliverable" data-content="Health Check Score"></i></label>
+            <div class=" two fields">
+              <div class="field">
+                <div class="ui right labeled input">
+                  <label for="tpminput" class="ui label">Score</label>
+                  <input type="number" placeholder="Weight 15%" id="tpminput">
+                  <div class="ui basic label">
+                    %
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="field ui mini message" id="tpmskala">
+                  Bobot 15%
+                </div>
+                <div class="ui popup">
+                  <label>Skala</label>
+                  <ol class="ui list">
+                    <li>90% to Health Check Score</li>
+                    <li>95% to Health Check Score</li>
+                    <li>100% to Health Check Score</li>
+                    <li>105% to Health Check Score</li>
+                    <li>110% to Health Check Score</li>
+                  </ol>
+                </div>
+              </div>
             </div>
 
             <!-- MAR -->
