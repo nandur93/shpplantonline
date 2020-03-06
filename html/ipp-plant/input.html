@@ -18,9 +18,11 @@
 
   <link rel="stylesheet" type="text/css" href="../../libs/Semantic-UI-CSS-master/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="../../stylesheet/custom_semantic.css">
+  <link rel="stylesheet" type="text/css" href="../../libs/Semantic-UI-CSS-master/components/calendar.min.css">
 
   <script src="../../javascript/jquery-3.4.1.min.js"></script>
   <script src="../../libs/Semantic-UI-CSS-master/semantic.min.js"></script>
+  <script src="../../libs/Semantic-UI-CSS-master/components/calendar.min.js"></script>
   <script src="../../javascript/js_custom_sematic.js"></script>
 
   <!-- Scroll to top widget -->
@@ -88,7 +90,7 @@
 
       <div class="main ui container left aligned">
         <!-- Breadcrumbs -->
-        <div class="ui segment">
+        <div class="ui top attached segment">
           <div class="ui breadcrumb">
             <a class="section" href="index.html">Home</a>
             <i class="right angle icon divider"></i>
@@ -100,11 +102,77 @@
           </div>
         </div>
 
-        <div class="html ui to attached segment">
+        <div class="ui attached segment" id="kalbe">
           <div class="ui form">
-
             <!-- Contents start here -->
             <div class="ui segment">
+              <!-- Rails -->
+              <!-- Rail right -->
+              <div class="ui right rail">
+                <div class="ui sticky">
+                  <div class="ui segment">
+                    <div class="ui list">
+                      <div class="header">
+                        <h2>Kalbe Panca Sradha</h2>
+                      </div>
+                      <div class="item">
+                        <div class="header">Trust is the glue of life</div>
+                        Kepercayaan adalah perekat di antara kami
+                      </div>
+                      <div class="item">
+                        <div class="header">Mindfullness is the foundation of our action</div>
+                        Kesadaran penuh adalah dasar dari setiap tindakan kami
+                      </div>
+                      <div class="item">
+                        <div class="header">Innovation is the key to our success</div>
+                        Inovasi adalah kunci dari keberhasilan kami
+                      </div>
+                      <div class="item">
+                        <div class="header">Strive to be the best</div>
+                        Bertekad menjadi yang terbaik
+                      </div>
+                      <div class="item">
+                        <div class="header">Interconnectedness is universal a way of our life</div>
+                        Saling keterkaitan adalah panduan hidup kami
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Rail left -->
+              <div class="ui left rail">
+                <div class="ui sticky">
+                  <div class="ui segment">
+                    <div class="ui list">
+                      <div class="header">
+                        <h2>Vision, Mission & Value</h2>
+                      </div>
+                      <div class="item">
+                        <u class="header">WHAT BUSINESS WE ARE IN</u>
+                        <div class="header">Nutrition solutions in every stage of human life cycle</div>
+                        Menyediakan solusi nutrisi di setiap tahap siklus kehidupan
+                      </div>
+                      <div class="item">
+                        <u class="header">VISION</u>
+                        <div class="header">Leading global nutrition company driven by innovation, strong brands &
+                          excellent management</div>
+                        Menjadi perusahaan global yang didukung oleh inovasi, merk yang kuat dan manajemen yang prima
+                      </div>
+                      <div class="item">
+                        <u class="header">MISSION</u>
+                        <div class="header">Providing best nutrition solution for a better life</div>
+                        Memberikan solusi nutrisi terbaik untuk kehidupan yang lebih baik
+                      </div>
+                      <div class="item">
+                        <u class="header">MOTTO</u>
+                        <div class="header">Nutrition for life</div>
+                        Nutrisi untuk kehidupan
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End of rails -->
               <div class="ui text container center aligned">
                 <h2 class="ui dividing header">Form Individual Performance Plant</h2>
               </div>
@@ -191,6 +259,19 @@
             <!-- Foocus KPI -->
             <h4 class="ui dividing header">Focus KPI</h4>
             <!-- 1 -->
+            <div class="ui page dimmer" id="poe1_dimmer">
+              <div class="content">
+                <label>Week</label>
+                <div class="three fields">
+                  <div class="field">
+                    <input type="text" id="picapoe">
+                    <button class="ui primary button" id="save_dim1">
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <label>1. POE SHP <i class="icon question circle outline" data-title="Deliverable"
                 data-content="POE = 76%"></i></label>
             <div class="two fields">
@@ -218,7 +299,6 @@
                 </div>
               </div>
             </div>
-
             <!-- 2 -->
             <label>2. Capacities <i class="icon question circle outline" data-title="Deliverable"
                 data-content="Capacity Actual: 70%"></i></label>
@@ -341,18 +421,67 @@
             <!-- MAR -->
             <h4 class="ui dividing header">MAR</h4>
             <!-- 1 -->
-            <div class="field">
-              <label>1. Improve General Competency for all employee <i class="icon question circle outline"
-                  data-title="Deliverable"
-                  data-content="Mapping competency dictionary (include 4.0) implemented as schedule"></i></label>
-              <input type="text">
+            <label>1. Improve General Competency for all employee <i class="icon question circle outline"
+                data-title="Deliverable"
+                data-content="Mapping competency dictionary (include 4.0) implemented as schedule"></i></label>
+            <div class="three fields">
+              <!-- Calendar picker -->
+              <div class="field">
+                <div class="ui calendar" id="ffa_mar1_cal">
+                  <div class="ui input left icon">
+                    <i class="calendar icon"></i>
+                    <input type="text" placeholder="Date">
+                  </div>
+                </div>
+              </div>
+              <!-- Dropdown bulan -->
+              <div class="field">
+                <div class="ui right labeled input">
+                  <label for="ffa_mar1_input" class="ui label">100%</label>
+                  <input type="text" placeholder="Weight 5%" id="ffa_mar1_input">
+                  <!-- <select class="ui fluid dropdown" id="ffa_mar1_input">
+                    <option value="">Bulan</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select> -->
+                  <div class="ui basic label">
+                    2020
+                  </div>
+                </div>
+              </div>
+              <!-- Result -->
+              <div class="field">
+                <div class="field ui mini message" id="ffa_mar1_skala">
+                  Bobot 5%
+                </div>
+                <div class="ui popup">
+                  <label>Skala</label>
+                  <ol class="ui list">
+                    <li>100% August 2020</li>
+                    <li>100% July 2020</li>
+                    <li>100% June 2020</li>
+                    <li>100% May 2020</li>
+                    <li>100% April 2020</li>
+                  </ol>
+                </div>
+              </div>
             </div>
             <!-- 2 -->
             <div class="field">
               <label>2. Develop orang untuk punya contamination & process failure awareness (reduce NQC) <i
                   class="icon question circle outline" data-title="Deliverable"
                   data-content="% Batch Final Release (Kejadian NQC : Number & % of cases close)"></i></label>
-              <input type="text">
+              <input type="text" id="test">
             </div>
             <!-- 3 -->
             <div class="field">
@@ -404,13 +533,16 @@
               <input type="text">
             </div>
 
-            <!-- Submit button -->
-            <div class="ui buttons">
-              <button class="ui button">Cancel</button>
-              <div class="or"></div>
-              <button class="ui positive button">Save</button>
-            </div>
 
+
+          </div>
+        </div>
+        <div class="ui bottom attached segment">
+          <!-- Submit button -->
+          <div class="ui buttons">
+            <button class="ui button">Cancel</button>
+            <div class="or"></div>
+            <button class="ui positive button">Save</button>
           </div>
         </div>
       </div>

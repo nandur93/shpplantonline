@@ -34,6 +34,12 @@ $(document)
         clearable: true
       });
 
+    // dropdown clearable
+    $('#ffa_mar1_input')
+      .dropdown({
+        clearable: true
+      });
+
     // Username input
     $('#uname')
       .dropdown({
@@ -83,6 +89,14 @@ $(document)
 
     // POE Input
     $("#poeinput").change(function () {
+
+      // Get week
+      var elm = document.createElement('input')
+      elm.type = 'week'
+      elm.valueAsDate = new Date()
+      var week = elm.value.split('W').pop()
+      // End get week
+
       if ($(this).val().length === 0) {
         $('#poeskala').text('Bobot 25%')
         $('#poeskala').removeClass('red')
@@ -97,6 +111,12 @@ $(document)
         $('#poeskala').removeClass('green')
         $('#poeskala').removeClass('teal')
         $('#poeskala').removeClass('blue')
+        $('#poe1_dimmer')
+          .dimmer({
+            closable: false
+          })
+          .dimmer('show');
+        $('#picapoe').val(week)
       } else if ($(this).val() < 74) {
         $('#poeskala').text('Grade 2. 72% <= x < 74%')
         $('#poeskala').removeClass('red')
@@ -133,6 +153,14 @@ $(document)
         $('#poeskala').removeClass('teal')
         $('#poeskala').removeClass('blue')
       }
+    });
+
+    $('#save_dim1').click(function () {
+      $('#poe1_dimmer')
+        .dimmer({
+          closable: true
+        })
+        .dimmer('hide');
     });
 
     // capacity Input
@@ -300,7 +328,7 @@ $(document)
     // department tpm Input
     $("#tpminput").change(function () {
       if ($(this).val().length === 0) {
-        $('#tpmskala').text('Bobot 150%')
+        $('#tpmskala').text('Bobot 15%')
         $('#tpmskala').removeClass('red')
         $('#tpmskala').removeClass('yellow')
         $('#tpmskala').removeClass('green')
@@ -351,6 +379,60 @@ $(document)
       }
     });
 
+    // Improve general competency for all employee ffa_mar1_input
+    $("#ffa_mar1_input").change(function () {
+      if ($(this).val().length === 0) {
+        $('#ffa_mar1_skala').text('Bobot 5%')
+        $('#ffa_mar1_skala').removeClass('red')
+        $('#ffa_mar1_skala').removeClass('yellow')
+        $('#ffa_mar1_skala').removeClass('green')
+        $('#ffa_mar1_skala').removeClass('teal')
+        $('#ffa_mar1_skala').removeClass('blue')
+      } else if ($(this).val() == 'March') {
+        $('#ffa_mar1_skala').text('Grade 1. 100% August 2020')
+        $('#ffa_mar1_skala').addClass('red')
+        $('#ffa_mar1_skala').removeClass('yellow')
+        $('#ffa_mar1_skala').removeClass('green')
+        $('#ffa_mar1_skala').removeClass('teal')
+        $('#ffa_mar1_skala').removeClass('blue')
+      } else if ($(this).val() == 'April') {
+        $('#ffa_mar1_skala').text('Grade 5. 100% April 2020')
+        $('#ffa_mar1_skala').removeClass('red')
+        $('#ffa_mar1_skala').removeClass('yellow')
+        $('#ffa_mar1_skala').removeClass('green')
+        $('#ffa_mar1_skala').removeClass('teal')
+        $('#ffa_mar1_skala').addClass('blue')
+      } else if ($(this).val() == 'May') {
+        $('#ffa_mar1_skala').text('Grade 4. 100% May 2020')
+        $('#ffa_mar1_skala').removeClass('red')
+        $('#ffa_mar1_skala').removeClass('yellow')
+        $('#ffa_mar1_skala').removeClass('green')
+        $('#ffa_mar1_skala').addClass('teal')
+        $('#ffa_mar1_skala').removeClass('blue')
+      } else if (bulan == 'June') {
+        $('#ffa_mar1_skala').text('Grade 3. 100% June 2020')
+        $('#ffa_mar1_skala').removeClass('red')
+        $('#ffa_mar1_skala').removeClass('yellow')
+        $('#ffa_mar1_skala').addClass('green')
+        $('#ffa_mar1_skala').removeClass('teal')
+        $('#ffa_mar1_skala').removeClass('blue')
+      } else if (bulan == 'July') {
+        $('#ffa_mar1_skala').text('Grade 2. 100% July 2020')
+        $('#ffa_mar1_skala').removeClass('red')
+        $('#ffa_mar1_skala').addClass('yellow')
+        $('#ffa_mar1_skala').removeClass('green')
+        $('#ffa_mar1_skala').removeClass('teal')
+        $('#ffa_mar1_skala').removeClass('blue')
+      } else {
+        $('#ffa_mar1_skala').text('Bobot 5%')
+        $('#ffa_mar1_skala').removeClass('red')
+        $('#ffa_mar1_skala').removeClass('yellow')
+        $('#ffa_mar1_skala').removeClass('green')
+        $('#ffa_mar1_skala').removeClass('teal')
+        $('#ffa_mar1_skala').removeClass('blue')
+      }
+    });
+
     // popup poe skala
     $('#poeskala')
       .popup({
@@ -390,4 +472,83 @@ $(document)
         hoverable: true,
         position: 'bottom left',
       });
+
+    // UI sticky kalbe
+    $('.ui.sticky')
+      .sticky({
+        offset: 50,
+        pushing: true,
+        context: '#kalbe',
+      });
+
+    //custom calendar
+    var months = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    $('#ffa_mar1_cal').calendar({
+      type: 'date',
+      monthFirst: false,
+      formatter: {
+        date: function (date, settings) {
+          if (!date) return '';
+          var day = date.getDate();
+          var month = months[date.getMonth()];
+          var year = date.getFullYear();
+          return day + '/' + month + '/' + year;
+        }
+      },
+      onChange: function (date, text, mode) {
+        $('#ffa_mar1_input').val(months[date.getMonth()]);
+        if ($('#ffa_mar1_input').val().length === 0) {
+          $('#ffa_mar1_skala').text('Bobot 5%')
+          $('#ffa_mar1_skala').removeClass('red')
+          $('#ffa_mar1_skala').removeClass('yellow')
+          $('#ffa_mar1_skala').removeClass('green')
+          $('#ffa_mar1_skala').removeClass('teal')
+          $('#ffa_mar1_skala').removeClass('blue')
+        } else if ($('#ffa_mar1_input').val() == 'August') {
+          $('#ffa_mar1_skala').text('Grade 1. 100% August 2020')
+          $('#ffa_mar1_skala').addClass('red')
+          $('#ffa_mar1_skala').removeClass('yellow')
+          $('#ffa_mar1_skala').removeClass('green')
+          $('#ffa_mar1_skala').removeClass('teal')
+          $('#ffa_mar1_skala').removeClass('blue')
+        } else if ($('#ffa_mar1_input').val() == 'April') {
+          $('#ffa_mar1_skala').text('Grade 5. 100% April 2020')
+          $('#ffa_mar1_skala').removeClass('red')
+          $('#ffa_mar1_skala').removeClass('yellow')
+          $('#ffa_mar1_skala').removeClass('green')
+          $('#ffa_mar1_skala').removeClass('teal')
+          $('#ffa_mar1_skala').addClass('blue')
+        } else if ($('#ffa_mar1_input').val() == 'May') {
+          $('#ffa_mar1_skala').text('Grade 4. 100% May 2020')
+          $('#ffa_mar1_skala').removeClass('red')
+          $('#ffa_mar1_skala').removeClass('yellow')
+          $('#ffa_mar1_skala').removeClass('green')
+          $('#ffa_mar1_skala').addClass('teal')
+          $('#ffa_mar1_skala').removeClass('blue')
+        } else if ($('#ffa_mar1_input').val() == 'June') {
+          $('#ffa_mar1_skala').text('Grade 3. 100% June 2020')
+          $('#ffa_mar1_skala').removeClass('red')
+          $('#ffa_mar1_skala').removeClass('yellow')
+          $('#ffa_mar1_skala').addClass('green')
+          $('#ffa_mar1_skala').removeClass('teal')
+          $('#ffa_mar1_skala').removeClass('blue')
+        } else if ($('#ffa_mar1_input').val() == 'July') {
+          $('#ffa_mar1_skala').text('Grade 2. 100% July 2020')
+          $('#ffa_mar1_skala').removeClass('red')
+          $('#ffa_mar1_skala').addClass('yellow')
+          $('#ffa_mar1_skala').removeClass('green')
+          $('#ffa_mar1_skala').removeClass('teal')
+          $('#ffa_mar1_skala').removeClass('blue')
+        } else {
+          $('#ffa_mar1_skala').text('Bobot 5%')
+          $('#ffa_mar1_skala').removeClass('red')
+          $('#ffa_mar1_skala').removeClass('yellow')
+          $('#ffa_mar1_skala').removeClass('green')
+          $('#ffa_mar1_skala').removeClass('teal')
+          $('#ffa_mar1_skala').removeClass('blue')
+        }
+      }
+    });
   });
