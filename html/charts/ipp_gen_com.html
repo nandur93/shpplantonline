@@ -1,0 +1,84 @@
+<!-- Card untuk pie chart ipp_gen_com -->
+<div class="column">
+  <div class="ui fluid card">
+    <div class="content">
+      <div class="ui message">
+        Improve General Competency for all employee (4.0 & Global Competency)
+      </div>
+      <div class="right floated meta" id="right_date_gen_com"></div>
+      <img class="ui avatar image" src="../../assets/images/VERDIANA ZNB - 15111608.JPG">
+      <label id="vza_name_gen_com"></label>
+    </div>
+    <div class="image">
+      <canvas id="ipp_gen_com-vza" width="400" height="400">
+      </canvas>
+      <!-- ChartJS doughnut -->
+      <script>
+        var prd = [];
+        var pnp = [];
+        var em = [];
+        var qa = [];
+        var hrga = [];
+        var ms = [];
+        $(document).ready(
+          function () {
+            $.ajax({
+              url: "/shpplantonline/php/php-ipp-plant/mtx_vza.php",
+              method: "GET",
+              success: function (data) {
+                console.log(data);
+
+                for (var i in data) {
+                  prd.push(data[i].mtx_ipp_prd);
+                  pnp.push(data[i].mtx_ipp_pnp);
+                  em.push(data[i].mtx_ipp_em);
+                  qa.push(data[i].mtx_ipp_qa);
+                  hrga.push(data[i].mtx_ipp_hrga);
+                  ms.push(data[i].mtx_ipp_ms);
+                }
+                var totalChamp = parseInt(prd) + parseInt(pnp) + parseInt(em) + parseInt(
+                    qa) +
+                  parseInt(
+                    hrga) + parseInt(ms);
+                var toStr = totalChamp.toString();
+                var str2 = " Champs";
+                var champions = toStr.concat(str2);
+                document.getElementById("champx").innerHTML = champions;
+                var chartdata = {
+                  labels: ["PRD", "P&P", "EM", "QA", "HRGA", "MS"],
+                  datasets: [{
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                    ],
+                    data: [prd, pnp, em, qa, hrga, ms]
+                  }]
+                };
+
+                var ctx = $("#ipp_gen_com-vza");
+
+                var doughNut = new Chart(ctx, {
+                  "type": "doughnut",
+                  "data": chartdata
+                });
+              },
+              error: function (data) {
+                console.log(data);
+              }
+            });
+          });
+      </script>
+    </div>
+    <div class="content">
+      <span class="right floated">
+        <i class="heart outline like icon"></i> <label id="champx"></label>
+      </span>
+      <!-- <i class="comment icon"></i>
+            3 comments -->
+    </div>
+  </div>
+</div>

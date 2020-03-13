@@ -1,15 +1,17 @@
 <?php
-header('Content-Type: application/json');
-include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/connections/shpplantonline_conn.php');
-   
-$sql = "SELECT ipp_person_name, ipp_gen_com FROM plant_ipp";
-$result = $conn->query($sql);
-
-$data = array();
-foreach ($result as $row) {
-	$data[] = $row;
+echo '<div class="right floated meta">';
+if ($result->num_rows > 0) {
+  // output data of each row
+  while ($row = $result->fetch_assoc()) {
+    // date selector
+    echo $row["ipp_month"]; // gunakan pointer ke table row
+    // Date
+    echo '</div>';
+    echo '<img class="ui avatar image" src="../../assets/images/VERDIANA ZNB - 15111608.JPG">';
+    // name selector
+    echo $row["ipp_person_name"]; // gunakan pointer ke table row
+  }
+} else {
+  echo "0 results";
 }
-
-mysqli_close($conn);
-
-echo json_encode($data);
+$conn->close();

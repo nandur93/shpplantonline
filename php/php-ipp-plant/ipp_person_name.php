@@ -2,7 +2,7 @@
 // header('Content-Type: application/json');
 include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/connections/shpplantonline_conn.php');
    
-$sql = "SELECT ipp_person_name, ipp_gen_com FROM plant_ipp";
+$sql = "SELECT ipp_person_name, kpi_gen_com, ipp_month FROM plant_ipp";
 $result = $conn->query($sql);
 
 // if ($result->num_rows > 0) {

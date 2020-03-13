@@ -40,7 +40,7 @@ $(document)
         clearable: true
       });
 
-    // Username input
+    /* // Username input
     $('#uname')
       .dropdown({
         clearable: true,
@@ -80,12 +80,12 @@ $(document)
             $('#department').val('')
           }
         }
-      });
+      }); */
 
-    $('.icon')
-      .popup({
-        inline: true
-      });
+    // $('.icon')
+    //   .popup({
+    //     inline: true
+    //   });
 
     // POE Input
     $("#poeinput").change(function () {

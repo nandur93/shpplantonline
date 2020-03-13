@@ -4,7 +4,7 @@
 header('Content-Type: application/json');
 include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/connections/shpplantonline_conn.php');
 
-$sql = "SELECT mtx_ipp_prd, mtx_ipp_pnp, mtx_ipp_em, mtx_ipp_qa, mtx_ipp_hrga, mtx_ipp_ms FROM `shpplantonline`.`plant_ipp_matrix`";
+$sql = "SELECT id, tema, detail, deliveriable, grade, skala, achiev_2019, pic, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, des FROM `shpplantonline`.`ipp_plant`";
 $result = $conn->query($sql);
 
 $data = array();

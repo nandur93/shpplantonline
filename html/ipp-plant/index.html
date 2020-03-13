@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html>
-<!-- Format documet with Beautify VSCode Extension shift+alt+f
-This document created by Nandur93 https://github.com/nandur93
-Created: 27 Feb 2020 -->
+<!-- /   = Root directory
+   .   = This location
+   ..  = Up a directory
+   ./  = Current directory
+   ../ = Parent of current directory
+   ../../ = Two directories backwards -->
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="description"
-    content="SHP Plant Online adalah layanan interkatif berbasis web yang meliputi audit 5P, KPI dan QA E-form">
-  <meta name="keywords"
-    content="audit 5p online,audit,5p,auditor,auditee,produksi,officeplant,kalbe nutritionals,sanghiang perkasa,kpi,key performance indicator,mar,e-form,quality">
-  <meta name="author" content="Nandang Duryat">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
   <title>SHP Plant Online</title>
-  <!-- Semantic-ui Library -->
+
   <link rel="stylesheet" type="text/css" href="../../libs/Semantic-UI-CSS-master/semantic.min.css">
-  <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
-  <script src="../../javascript/jquery-3.4.1.min.js"></script>
-  <script src="../../javascript/js_menu.js"></script>
-  <script src="../../libs/Semantic-UI-CSS-master/semantic.min.js"></script>
-  <!-- ChartJS Libaray -->
-  <script src="../../libs/Chart.js-2.9.3/dist/Chart.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../stylesheet/custom_semantic.css">
+  <link rel="stylesheet" type="text/css" href="../../libs/Semantic-UI-CSS-master/components/calendar.min.css">
   <link rel="stylesheet" type="text/css" href="../../libs/Chart.js-2.9.3/dist/Chart.min.css">
-  <!-- Stylesheet -->
-  <!-- <link rel="stylesheet" type="text/css" href="../../stylesheet/style_index.css" /> -->
-  <!-- <link rel="stylesheet" type="text/css" href="../../stylesheet/top_nav.css" /> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/font-awesome.min.css"> -->
+
+  <script src="../../javascript/jquery-3.4.1.min.js"></script>
+  <script src="../../libs/Semantic-UI-CSS-master/semantic.min.js"></script>
+  <script src="../../libs/Semantic-UI-CSS-master/components/calendar.min.js"></script>
+  <!-- <script src="../../javascript/js_custom_sematic.js"></script> -->
+  <script src="../../libs/Chart.js-2.9.3/dist/Chart.min.js"></script>
+  <!-- <script src="../../libs/Google-Charts/google-chart-loader.js"></script> -->
+  <!-- <script src="../../javascript/js-ipp-plant/vza.js"></script> -->
+  <!-- <script src="../../javascript/js-ipp-plant/ipp-monthly.js"></script> -->
+  <script src="../../javascript/js-ipp-plant/monthly.js"></script>
+  <script src="../../javascript/jquery-violation-handler.js"></script>
+
+  <!-- Scroll to top widget -->
+  <script src="../../javascript/js_scroll_to_top.js"></script>
+
   <!-- Favicons https://realfavicongenerator.net/-->
-  <link rel="shortcut icon" href="../../res/fav/favicon.ico">
+  <link rel="shortcut icon" href="./res/fav/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="../../res/fav/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../../res/fav/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../../res/fav/favicon-16x16.png">
@@ -36,251 +44,144 @@ Created: 27 Feb 2020 -->
   <link rel="mask-icon" href="../../res/fav/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-  <!-- Fontawesome 4.7.0 -->
-  <!-- <script src="https://use.fontawesome.com/62951918de.js"></script> -->
-
 </head>
 
 <body>
-  <div class="ui grid">
-    <div class="computer only row">
-      <div class="column">
-        <div class="ui menu">
-          <a class="item">Home</a>
-          <a class="item">Menu Item B</a>
-          <a class="item">Menu Item C</a>
-          <a class="item">Menu Item D</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="tablet mobile only row">
-      <div class="column">
-        <div class="ui menu">
-          <a id="mobile_item" class="item"><i class="bars icon"></i></a>
+  <!-- Following Menu -->
+  <div class="ui fixed inverted main menu">
+    <div class="ui container">
+      <a class="active item">Home</a>
+      <a class="item">Work</a>
+      <a class="item">Company</a>
+      <a class="item">Careers</a>
+      <div class="right menu">
+        <div class="item">
+          <a class="ui button">Log in</a>
+        </div>
+        <div class="item">
+          <a class="ui primary button">Sign Up</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="ui pushable segment">
-    <div class="ui sidebar vertical menu">
-      <a class="item">Home</a>
-      <a class="item">Menu Item B</a>
-      <a class="item">Menu Item C</a>
-      <a class="item">Menu Item D</a>
-    </div>
-    <div class="pusher">
-      <div class="ui three column grid">
-        <div class="column">
-          <div id="content" class="ui segment">
+  <!-- Sidebar Menu -->
+  <div class="ui vertical inverted sidebar menu">
+    <a href="./" class="active item">Home</a>
+    <a href="./html/ams_assets.html" class="item">RFID Asset Management System</a>
+    <a href="./html/kpi_dashboard.html" class="item">Dashboard IPP Plant</a>
+    <a href="./html/point_audit.html" class="item">Audit 5P Plant</a>
+  </div>
+
+  <!-- Page Contents -->
+  <div class="pusher">
+    <div class="ui fixed vertical masthead center aligned segment">
+      <div class="ui large secondary pointing menu">
+        <div class="ui container">
+          <!-- <div class="ui large secondary inverted pointing menu"> -->
+          <a class="toc item">
+            <i class="sidebar icon"></i>
+          </a>
+          <a href="./" class="active item">Home</a>
+          <a href="./html/ams_assets.html" class="item">RFID Asset Management System</a>
+          <a href="./html/kpi_dashboard.html" class="item">Dashboard IPP Plant</a>
+          <a href="./html/point_audit.html" class="item">Audit 5P Plant</a>
+          <div class="right item">
+            <!-- <a class="ui inverted button">Log in</a>
+            <a class="ui inverted button">Sign Up</a> -->
+          </div>
+        </div>
+      </div>
+      <!-- End of header -->
+
+      <div class="main ui container left aligned">
+        <!-- Breadcrumbs -->
+        <div class="ui top attached segment">
+          <div class="ui breadcrumb">
+            <a class="section" href="index.html">Home</a>
+            <i class="right angle icon divider"></i>
+            <a class="section">SHP Plant Online</a>
+            <i class="right angle icon divider"></i>
+            <a class="section">IPP Dashboard</a>
+            <i class="right angle icon divider"></i>
+            <div class="active section">Input IPP</div>
+          </div>
+        </div>
+
+        <div class="ui attached segment" id="kalbe">
+          <div class="ui form">
+            <!-- Contents start here -->
+            <div class="ui segment">
+              <!-- Rails -->
+              <!-- Rail right -->
+              <?php include "../widgets/rails/right_rail.html" ?>
+              <!-- Rail left -->
+              <?php include "../widgets/rails/left_rail.html" ?>
+              <!-- End of rails -->
+              <div class="ui text container center aligned">
+                <h2 class="ui dividing header">Dashboard IPP Plant</h2>
+              </div>
+            </div>
+
+            <!-- Name fields -->
+            <div class="four fields left aligned">
+              <!-- Field 1 -->
+              <div class="field">
+                <label>Username</label>
+                <select class="ui fluid dropdown" id="uname">
+                  <option value="">Username</option>
+                  <option value="1">BGW</option>
+                  <option value="2">SDR</option>
+                  <option value="3">CAM</option>
+                  <option value="4">FRC</option>
+                  <option value="5">FFA</option>
+                  <option value="6">VZA</option>
+                  <option value="7">DAP</option>
+                </select>
+              </div>
+              <!-- Field 2 -->
+              <div class="field">
+                <label>Full Name</label>
+                <input type="text" placeholder="Name" id="fname">
+              </div>
+              <!-- Field 3 -->
+              <div class="field">
+                <label>NIK</label>
+                <input type="text" placeholder="NIK" id="nik">
+              </div>
+              <!-- Field 4 Dropdown Department -->
+              <div class="field">
+                <label>Department</label>
+                <input type="text" placeholder="Department" id="department">
+              </div>
+
+            </div>
+            <!-- End of 4 fields -->
+
             <!-- Data Chart dari mySQL -->
             <?php
-          include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/connections/shpplantonline_conn.php');
-          include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/php-ipp-plant/ipp_person_name.php');
-          ?>
+              include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/connections/shpplantonline_conn.php');
+              include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/php-ipp-plant/ipp_person_name.php');
+              ?>
             <!-- Start cards -->
-            <!-- Card untuk pie chart ipp_gen_com -->
-            <div class="ui card">
-              <div class="content">
-                <div class="right floated meta">14h</div>
-                <img class="ui avatar image" src="../../assets/images/nan.jpg">
+            <div class="ui segments">
+              <div class="ui segment">
                 <?php
-              if ($result->num_rows > 0) {
-                  // output data of each row
-                  while ($row = $result->fetch_assoc()) {
-                      echo $row["ipp_person_name"]; // gunakan pointer ke table row
-                  }
-              } else {
-                  echo "0 results";
-              }
-              $conn->close();
-              ?>
-              </div>
-              <div class="image">
-                <canvas id="ipp_gen_com-vza" width="400" height="400">
-                </canvas>
-                <!-- ChartJS doughnut -->
-                <script>
-                  var prd = [];
-                  var pnp = [];
-                  var em = [];
-                  var qa = [];
-                  var hrga = [];
-                  var ms = [];
-                  $(document).ready(
-                    function () {
-                      $.ajax({
-                        url: "/shpplantonline/php/php-ipp-plant/mtx_vza.php",
-                        method: "GET",
-                        success: function (data) {
-                          console.log(data);
-
-                          for (var i in data) {
-                            prd.push(data[i].mtx_ipp_prd);
-                            pnp.push(data[i].mtx_ipp_pnp);
-                            em.push(data[i].mtx_ipp_em);
-                            qa.push(data[i].mtx_ipp_qa);
-                            hrga.push(data[i].mtx_ipp_hrga);
-                            ms.push(data[i].mtx_ipp_ms);
-                          }
-                          var totalChamp = parseInt(prd) + parseInt(pnp) + parseInt(em) + parseInt(qa) +
-                            parseInt(
-                              hrga) + parseInt(ms);
-                          var toStr = totalChamp.toString();
-                          var str2 = " Champs";
-                          var champions = toStr.concat(str2);
-                          document.getElementById("champx").innerHTML = champions;
-                          var chartdata = {
-                            labels: ["PRD", "P&P", "EM", "QA", "HRGA", "MS"],
-                            datasets: [{
-                              backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                              ],
-                              data: [prd, pnp, em, qa, hrga, ms]
-                            }]
-                          };
-
-                          var ctx = $("#ipp_gen_com-vza");
-
-                          var doughNut = new Chart(ctx, {
-                            "type": "doughnut",
-                            "data": chartdata
-                          });
-                        },
-                        error: function (data) {
-                          console.log(data);
-                        }
-                      });
-                    });
-                </script>
-              </div>
-              <div class="content">
-                <span class="right floated">
-                  <i class="heart outline like icon"></i> <b id="champx"></b>
-                </span>
-                <i class="comment icon"></i>
-                3 comments
-              </div>
-              <div class="extra content">
-                <div class="ui large transparent left icon input">
-                  <i class="heart outline icon"></i>
-                  <input type="text" placeholder="Add Comment...">
-                </div>
+                   //include "../charts/ipp_gen_com.html"
+                   include "../charts/kpi_plant.html"
+                ?>
               </div>
             </div>
-            <!-- Data Chart dari mySQL -->
-            <!-- <?php
-          include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/connections/shpplantonline_conn.php');
-          include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/php-ipp-plant/ipp_person_name.php');
-          ?> -->
-
             <!-- Half circle -->
-            <!-- Card untuk pie chart ipp_gen_com -->
-            <div class="ui card">
-              <div class="content">
-                <div class="right floated meta">14h</div>
-                <img class="ui avatar image" src="../../assets/images/nan.jpg">
-                <?php
-              if ($result->num_rows > 0) {
-                  // output data of each row
-                  while ($row = $result->fetch_assoc()) {
-                      echo $row["ipp_person_name"]; // gunakan pointer ke table row
-                  }
-              } else {
-                  echo "0 results";
-              }
-              $conn->close();
-              ?>
-              </div>
-              <div class="image">
-                <canvas id="ipp_tpm_imp-vza" width="400" height="400">
-                </canvas>
-                <!-- ChartJS doughnut -->
-                <script>
-                  var targetScore1 = 90;
-                  var targetScore2 = 95;
-                  var targetScore3 = 100;
-                  var targetScore4 = 105;
-                  var targetScore5 = 110;
-                  var finalScore
-
-                  function chartJS(finalScore) {
-                    var tpmData = {
-                      labels: ["Final", "Target"],
-                      datasets: [{
-                        backgroundColor: [
-                          'rgba(255, 99, 132, 0.2)',
-                          'rgba(108, 122, 137, 0)'
-                        ],
-                        data: [finalScore, targetScore5 - finalScore]
-                      }]
-                    };
-                    var ctx = $("#ipp_tpm_imp-vza");
-
-                    var halfDoughnut = new Chart(ctx, {
-                      "type": "doughnut",
-                      "data": tpmData,
-                      "options": {
-                        rotation: 1 * Math.PI,
-                        circumference: 1 * Math.PI
-                      },
-                      "animation": {
-                        animateScale: false,
-                        animateRotate: false
-                      }
-                    });
-                  };
-
-                  function waitForMessage() {
-                    $.ajax({
-                      url: "/shpplantonline/php/php-ipp-plant/tpm_imp_vza.php",
-                      method: "GET",
-                      async: true,
-                      /* If set to non-async, browser shows page as "Loading.."*/
-                      cache: false,
-                      timeout: 50000,
-                      /* Timeout in ms */
-                      success: function (data) {
-                        var stringScore = JSON.stringify(data);
-                        var parseScore = JSON.parse(stringScore);
-                        var finalScore = parseScore[0].ipp_tpm_imp;
-                        console.log("success " + finalScore);
-                        chartJS(finalScore);
-
-                      },
-                      error: function (data) {
-                        console.log(data);
-                      },
-                    });
-                  };
-                  $(document).ready(function passData() {
-                    waitForMessage();
-                    chartJS();
-                  });
-                  setInterval(waitForMessage, 5000);
-                </script>
-              </div>
-              <div class="content">
-                <span class="right floated">
-                  <i class="heart outline like icon"></i> <b id="champx"></b>
-                </span>
-                <i class="comment icon"></i>
-                3 comments
-              </div>
-            </div>
-
             <!-- End cards -->
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- Footer -->
+  <?php include "../widgets/elements/footer.html" ?>
 </body>
 
 </html>
