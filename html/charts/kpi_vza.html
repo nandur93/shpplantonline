@@ -1,0 +1,66 @@
+<!-- Card untuk pie chart ipp_poe -->
+<div class="column">
+  <div class="ui fluid card">
+    <div class="content">
+      <div class="ui message">
+        KPI MS Plant 2020
+      </div>
+      <div class="right floated meta" id="right_date_poe"></div>
+      <img class="ui avatar image" src="../../assets/images/VERDIANA ZNB - 15111608.JPG">
+      <label id="pic_name"></label>
+    </div>
+    <div class="image">
+      <script>
+        google.charts.load('current', {
+          packages: ['corechart', 'bar']
+        });
+        google.charts.setOnLoadCallback(drawBasic);
+
+        function drawBasic() {
+
+          var data = google.visualization.arrayToDataTable([
+            ['KPI', 'Grade', {
+              role: 'style'
+            }],
+            ['Improve General Competency for all employee (4.0 & Global Competency)', 3, 'red'],
+            ['TPM Implementation FI (TPM Score dari Otsuka), CA', 3, 'green'],
+            ['POE SHP', 4, 'blue'],
+            ['Develop orang yang bisa melihat peluang untuk cost efficiency ', 4, 'yellow'],
+            ['RFID Asset System', 4, 'lime']
+          ]);
+
+          var options = {
+            title: 'KPI MS Plant 2020',
+            chartArea: {
+              // height: '100%'
+            },
+            vAxis: {
+              title: 'Grade',
+              minValue: 0,
+              maxValue: 5,
+              gridlines: {
+                color: '#333',
+                minSpacing: 20
+              }
+            },
+            hAxis: {
+              title: 'KPI',
+              minorGridlines: {
+                count: 5
+              },
+            },
+            legend: {
+              position: 'none'
+            }
+          };
+
+          var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+        }
+      </script>
+      <div id="chart_div" width="400" height="400">
+      </div>
+    </div>
+  </div>
+</div>
