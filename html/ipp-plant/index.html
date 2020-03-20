@@ -24,8 +24,9 @@
   <script src="../../javascript/jquery-3.4.1.min.js"></script>
   <script src="../../libs/Semantic-UI-CSS-master/semantic.min.js"></script>
   <script src="../../libs/Semantic-UI-CSS-master/components/calendar.min.js"></script>
-  <!-- <script src="../../javascript/js_custom_sematic.js"></script> -->
+  <script src="../../javascript/js_custom_sematic.js"></script>
   <script src="../../libs/Chart.js-2.9.3/dist/Chart.min.js"></script>
+  <script src="../../libs/Chart.js-2.9.3/dist/chartjs-plugin-labels.min.js"></script>
   <!-- <script src="../../libs/Google-Charts/google-chart-loader.js"></script> -->
   <!-- <script src="../../javascript/js-ipp-plant/vza.js"></script> -->
   <!-- <script src="../../javascript/js-ipp-plant/ipp-monthly.js"></script> -->
@@ -103,30 +104,23 @@
             <i class="right angle icon divider"></i>
             <a class="section">SHP Plant Online</a>
             <i class="right angle icon divider"></i>
-            <a class="section">IPP Dashboard</a>
-            <i class="right angle icon divider"></i>
-            <div class="active section">Input IPP</div>
+            <div class="active section">IPP Dashboard</div>
           </div>
         </div>
 
         <div class="ui attached segment" id="kalbe">
           <div class="ui form">
             <!-- Contents start here -->
-            <div class="ui segment">
-              <!-- Rails -->
-              <!-- Rail right -->
-              <?php include "../widgets/rails/right_rail.html" ?>
-              <!-- Rail left -->
-              <?php include "../widgets/rails/left_rail.html" ?>
-              <!-- End of rails -->
-              <div class="ui text container center aligned">
-                <h2 class="ui dividing header">Dashboard IPP Plant</h2>
-              </div>
+            <!-- Rails -->
+            <?php //include "../widgets/rails/right_rail.html" ?>
+            <?php //include "../widgets/rails/left_rail.html" ?>
+            <!-- End of rails -->
+            <div class="ui text container center aligned">
+              <h4 class="ui dividing header">Dashboard IPP Plant</h4>
             </div>
 
-            <!-- Name fields -->
-            <div class="four fields left aligned">
-              <!-- Field 1 -->
+            <!-- Field 1 -->
+            <div class="ui two fields">
               <div class="field">
                 <label>Username</label>
                 <select class="ui fluid dropdown" id="uname">
@@ -140,24 +134,27 @@
                   <option value="7">DAP</option>
                 </select>
               </div>
+
               <!-- Field 2 -->
               <div class="field">
-                <label>Full Name</label>
-                <input type="text" placeholder="Name" id="fname">
+                <label>Periode</label>
+                <select class="ui fluid dropdown" id="month">
+                  <option value="">Bulan</option>
+                  <option value="1">Jan</option>
+                  <option value="2">Feb</option>
+                  <option value="3">Mar</option>
+                  <option value="4">Apr</option>
+                  <option value="5">May</option>
+                  <option value="6">Jun</option>
+                  <option value="7">Jul</option>
+                  <option value="8">Aug</option>
+                  <option value="9">Sep</option>
+                  <option value="10">Oct</option>
+                  <option value="11">Nov</option>
+                  <option value="12">Dec</option>
+                </select>
               </div>
-              <!-- Field 3 -->
-              <div class="field">
-                <label>NIK</label>
-                <input type="text" placeholder="NIK" id="nik">
-              </div>
-              <!-- Field 4 Dropdown Department -->
-              <div class="field">
-                <label>Department</label>
-                <input type="text" placeholder="Department" id="department">
-              </div>
-
             </div>
-            <!-- End of 4 fields -->
 
             <!-- Data Chart dari mySQL -->
             <?php
@@ -165,15 +162,16 @@
               include($_SERVER['DOCUMENT_ROOT'] . '/shpplantonline/php/php-ipp-plant/ipp_person_name.php');
               ?>
             <!-- Start cards -->
-            <div class="ui segments">
-              <div class="ui segment">
-                <?php
-                   //include "../charts/ipp_gen_com.html"
-                   include "../charts/kpi_plant.html"
+            <div class="two fields">
+              <?php
+              include "../charts/all_monthly.html"
                 ?>
-              </div>
             </div>
-            <!-- Half circle -->
+            <div class="two fields">
+              <?php
+              include "../charts/kpi_plant.html"
+              ?>
+            </div>
             <!-- End cards -->
           </div>
         </div>
